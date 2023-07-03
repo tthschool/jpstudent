@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if not students %}
+    <p>情報ありません</p>
+    <button class="btn-primary" onclick="location.href='/add'">
+      学生追加
+    </button>
+  {% else %}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th style="text-align: center">名前</th>
+          <th>線年月日</th>
+          <th>性別</th>
+          <th>国籍</th>
+          <th>住所</th>
+          <th>電話番号</th>
+          <th>メール</th>
+          <th>クラス</th>
+          <th>学生活動</th> <!-- Thêm cột cho các hành động -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+          <tr>
+            <td>
+              <a href="{{ url_for('student_detail', id=student.id) }}">{{ student.id }}</a>
+            </td>
+            <td>{{ student.Name }}</td>
+            <td>{{ student.Date_of_birth }}</td>
+            <td>{{ student.Gender }}</td>
+            <td>{{ student.Nationality }}</td>
+            <td>{{ student.Address }}</td>
+            <td>{{ student.Phone_number }}</td>
+            <td>{{ student.Email }}</td>
+            <td>{{ student.Class }}</td>
+            <td>
+              <a href="{{ url_for('update_student', id=student.id) }}" class="btn btn-primary">Update</a> <!-- Nút cập nhật -->
+              <a href="{{ url_for('delete_student', id=student.id) }}" class="btn btn-danger">Delete</a> <!-- Nút xóa -->
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+    <button class="btn-primary" onclick="location.href='{{ url_for('add_student') }}'">
+      Add new student
+    </button>
+  </form>
+  <form method = 'POST' action = "{{url_for('logout')}}" >
+      <button type="submit" class="btn btn-primary">ログアウト</button>
+  </form>
+  {% endif %}
+{% endblock content %}

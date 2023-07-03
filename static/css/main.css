@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 50;
+  }
+body {
+    background-color: rgb(6, 108, 112);
+}
+
+.delete-btn {
+    background-color: rgb(171 195 104); /* thay đổi màu nền */
+    color: rgb(5, 0, 0); /* thay đổi màu chữ */
+    border: none; /* loại bỏ đường viền */
+    padding: 5px 10px; /* thay đổi khoảng cách giữa nội dung và đường viền */
+    border-radius: 5px; /* bo tròn các góc */
+    cursor: pointer; /* đổi con trỏ khi di chuột vào */
+}
+
+.btn-btn-info{
+    background-color: rgb(171 195 104); /* thay đổi màu nền */
+    color: rgb(5, 0, 0); /* thay đổi màu chữ */
+    border: none; /* loại bỏ đường viền */
+    padding: 5px 10px; /* thay đổi khoảng cách giữa nội dung và đường viền */
+    border-radius: 5px; /* bo tròn các góc */
+    cursor: pointer; /* đổi con trỏ khi di chuột vào */
+}
+.btn-primary{
+    background-color: rgb(171 195 104); /* thay đổi màu nền */
+    color: rgb(5, 0, 0); /* thay đổi màu chữ */
+    border: none; /* loại bỏ đường viền */
+    padding: 5px 10px; /* thay đổi khoảng cách giữa nội dung và đường viền */
+    border-radius: 5px; /* bo tròn các góc */
+    cursor: pointer; /* đổi con trỏ khi di chuột vào */
+}
+
+.logout-container {
+    position: fixed;
+    top: 50px;
+    right: 60px;
+  }
+.activity-box {
+    height: 300px; /* Thiết lập chiều cao cố định cho box */
+    overflow-y: scroll; /* Cho phép kéo lên xuống */
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+.form-control{
+    height: 300px; /* Thiết lập chiều cao cố định cho box */
+    overflow-y: scroll; /* Cho phép kéo lên xuống */
+    border: 1px solid #ccc;
+    padding: 10px;
+  
+}
+.form-control-signup{
+    height: 10px; /* Thiết lập chiều cao cố định cho box */
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.form-control-update{
+    height: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}

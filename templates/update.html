@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="POST" action="{{ url_for('update_student', id=student.id) }}">
+    <div class="form-group">
+      <label for="name">名前:</label>
+      <input type="text" class="form-control-update" id="Name" name="Name" value="{{ student.name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="name">線年月日:</label>
+      <input type="date" class="form-control-update" id="BirthDay" name="BirthDay" value="{{ student.BirthDay }}" required>
+    </div>
+    <div class="form-group">
+      <label for="Gender">性別:</label> 
+      <input type="text" class="form-control-update" id="Gender" name="Gender" value="{{ student.Gender }}" required>
+    </div>
+    <div class="form-group">
+      <label for="Nationality">国籍:</label>
+      <input type="text" class="form-control-update" id="Nationality" name="Nationality" value="{{ student.Nationality }}" required>
+    </div>
+    <div class="form-group">
+        <label for="Address">住所:</label>
+        <input type="text" class="form-control-update" id="Address" name="Address" value="{{ student.Address }}" required>
+    </div>
+    <div class="form-group">
+         <label for="Phone_number">電話番号:</label>
+        <input type="number" class="form-control-update" id="Phone_number" name="Phone_number" value="{{ student.Phone_number }}" required>
+    </div>
+    <div class="form-group">
+        <label for="Phone_number">メール:</label>
+       <input type="text" class="form-control-update" id="Email" name="Email" value="{{ student.Email }}" required>
+   </div>
+   <div class="form-group">
+    <label for="Class">クラス:</label>
+   <input type="text" class="form-control-update" id="Class" name="Class" value="{{ student.Class }}" required>
+</div>
+    <button type="submit" class="btn btn-primary">Update student</button>
+  </form>
+{% endblock %}
+
+
+<!--phần class = form control    có tác dụng đồng nhất trường nhập liệu cho mẫu , định dạng font 
+lích thước và giá trị đường viền chuẩn đồng nhất-->
+<!--trong thẻ <form> thường bao gồm thuộc tính action để xác định đường dẫn URL mà dữ liệu sẽ được gửi đến 
+  và thuộc tính method để xác định phương thức HTTP sử dụng để gửi dữ liệu.
+   Thông thường, khi muốn gửi dữ liệu từ form lên server để xử lý, ta sử dụng phương thức POST. 
+   vì vậy, method sẽ được đặt là POST trong thẻ form để gửi dữ liệu lên server thông qua phương thức POST.-->

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-lg-3">
+      <!-- Phần thông tin học sinh (bên phải) -->
+  <h1 style="font-size: 24px; text-align: center;">Student Information</h1>
+
+      <table class="table">
+        <tbody>
+          <tr>
+
+            <td><strong>ID:</strong></td>
+            <td>{{ student.id }} </td>
+          </tr>
+          <tr>
+            <td><strong>名前:</strong></td>
+            <td>{{ student.Name }}</td>
+          </tr>
+          <tr>
+            <td><strong>線年月日:</strong></td>
+            <td>{{ student.Date_of_birth }}</td>
+          </tr>
+          <tr>
+            <td><strong>年齢:</strong></td>
+            <td>{{ student.Gender }}</td>
+          </tr>
+          <tr>
+            <td><strong>国籍:</strong></td>
+            <td>{{ student.Nationality }}</td>
+          </tr>
+          <tr>
+            <td><strong>住所:</strong></td>
+            <td>{{ student.address }}</td>
+          </tr>
+          <tr>
+            <td><strong>電話番号:</strong></td>
+            <td>{{student.Phone_number}}</td>
+          </tr>
+          <tr>
+            <td><strong>メール:</strong></td>
+            <td>{{ student.Email }}</td>
+          </tr>
+          <tr>
+            <td><strong>クラス:</strong></td>
+            <td>{{ student.Class }}</td>
+          </tr>
+        </tbody>
+ 
+      </table>
+      <button class="btn btn-primary" onclick="location.href='{{ url_for('students') }}'">Students　戻る</button>
+    </div>
+    <div class="col-lg-9">
+      <!-- Phần cập nhật hoạt động học sinh (giữa) -->
+      <h2 style="font-size: 24px; text-align: center;">Student 活動</h2>
+      <div class="activity-box">
+        <!-- Phần lịch sử hoạt động của học sinh -->
+        <div class="chat-history">
+          <!-- Các tin nhắn chat (hoạt động) sẽ được lấy từ database và hiển thị ở đây -->
+          {% if student.student_activity %}
+            {%for student_activity in student.student_activity.split('\n')%}
+            <p> {{ student_activity }}</p>
+            {% endfor %}
+          {%else%}
+            <h3> Empty </h3>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-12">
+      <!-- Phần cập nhật hoạt động học sinh (bên trái) -->
+      <h2 style="font-size: 24px; text-align: center;">Update 活動</h2>
+
+      <form method="POST" action="{{ url_for('update_activity' , id  = student.id) }}">
+        <!-- Thêm hidden input -->
+      
+        <div class="form-group">
+          <textarea class="form-control" id="activity" name="activity" placeholder="Enter activity"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+      <form method = 'POST' action = "{{url_for('logout')}}" >
+        <button type="submit" class="btn btn-primary">ログアウト</button>
+    </form>
+         </div>
+    </div>
+  </div>
+</body>
+          
+</html>
+          
